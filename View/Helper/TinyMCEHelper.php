@@ -89,7 +89,7 @@ class TinyMCEHelper extends AppHelper {
 		// remove last comma from lines to avoid the editor breaking in Internet Explorer
 		$lines = rtrim($lines);
 		$lines = rtrim($lines, ',');
-		$this->Html->scriptBlock('tinymce.init({' . "\n" . $lines . "\n" . '});' . "\n", array('inline' => false));
+		$this->Html->scriptBlock('tinymce.init({' . "\n" . $lines . "\n" . '});' . "\n", array('inline' => false, 'block'=>'scriptBottom'));
 	}
 
 /**
@@ -105,7 +105,7 @@ class TinyMCEHelper extends AppHelper {
 			$this->_defaults = $appOptions;
 		}
 		if ($this->settings['loadScript'] === true) {
-			$this->Html->script($this->settings['script'], array('inline' => false));
+			$this->Html->script($this->settings['script'], array('inline' => false, 'block' => 'scriptBottom'));
 		}
 	}
 
